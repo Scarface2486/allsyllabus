@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Tech - IT Syllabus | SINCET</title>
+    <link rel="icon" type="image/png" href="LOGO.jpg"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQHSPXB5FR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-HQHSPXB5FR');
+    </script>
+    <style>
+        /* ========== GLOBAL RESET & BASE ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #1a1a2e;
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #app-root {
+            width: 100%;
+            flex: 1;
+        }
+
+        /* ========== HEADER (shared) ========== */
+        .header {
+            background: rgba(26, 26, 46, 0.95);
+            border-bottom: 2px solid #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #1a1a2e, #00d4ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00d4ff;
+            box-shadow: 0 0 10px #00d4ff;
+        }
+
+        .logo-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            background: linear-gradient(45deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #00d4ff;
+            opacity: 0.8;
+        }
+
+        /* ========== HOME LINK (subject page) ========== */
+        .home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin: 120px 0 30px 0;
+            padding: 12px 25px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(0, 212, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .home-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+
+        .home-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            padding-left: 30px;
+            padding-right: 30px;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .home-link:hover::before {
+            left: 100%;
+        }
+
+        .home-link i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .home-link:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* ========== MAIN CONTAINER (subject page) ========== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            animation: pageLoad 0.8s ease-out;
+        }
+
+        @keyframes pageLoad {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SUBJECT HEADER ========== */
+        .subject-header {
+            margin-bottom: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 212, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .subject-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00d4ff, #00ff9d, #9b59ff, #ff6b9d, #ffcc00, #00ffcc);
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .subject-title {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #fff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .subject-info {
+            font-size: 1.2rem;
+            color: #ccc;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subject-info::before {
+            content: '';
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, transparent);
+        }
+
+        /* ========== CONTENT SECTIONS ========== */
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+            border-color: #00d4ff;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #00d4ff, #66e0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 10px;
+            height: 30px;
+            background: linear-gradient(180deg, #00d4ff, #00ff9d);
+            border-radius: 5px;
+        }
+
+        .section-count {
+            margin-left: auto;
+            padding: 5px 12px;
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            border-radius: 20px;
+            background: rgba(0, 212, 255, 0.08);
+            color: #a9efff;
+            font-size: 0.78rem;
+            font-weight: 600;
+            -webkit-text-fill-color: #a9efff;
+            white-space: nowrap;
+        }
+
+        .section-content {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            animation: textReveal 0.8s ease-out;
+        }
+
+        @keyframes textReveal {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== UNITS LIST ========== */
+        .units-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .unit-item {
+            --unit-accent: #00d4ff;
+            padding: 26px 28px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(0, 212, 255, 0.035));
+            border-radius: 15px;
+            border-left: 6px solid;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: unitSlide 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        @keyframes unitSlide {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .unit-item:hover {
+            transform: translateX(8px) translateY(-2px);
+            box-shadow: 0 15px 32px rgba(0, 0, 0, 0.25), 0 0 18px rgba(0, 212, 255, 0.08);
+        }
+
+        .unit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .unit-item:hover::before {
+            transform: translateX(0);
+        }
+
+        .unit-heading {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .unit-number {
+            width: 46px;
+            height: 46px;
+            flex: 0 0 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--unit-accent);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.045);
+            color: var(--unit-accent);
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.03), 0 0 14px rgba(0, 212, 255, 0.08);
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+
+        .unit-title {
+            font-size: 1.25rem;
+            background: linear-gradient(90deg, #fff, var(--unit-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .unit-content {
+            color: #ccc;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* unit color variants */
+        .unit-item:nth-child(1) { --unit-accent: #00d4ff; border-left-color: var(--unit-accent); }
+        .unit-item:nth-child(2) { --unit-accent: #00ff9d; border-left-color: var(--unit-accent); animation-delay: 0.1s; }
+        .unit-item:nth-child(3) { --unit-accent: #9b59ff; border-left-color: var(--unit-accent); animation-delay: 0.2s; }
+        .unit-item:nth-child(4) { --unit-accent: #ff6b9d; border-left-color: var(--unit-accent); animation-delay: 0.3s; }
+        .unit-item:nth-child(5) { --unit-accent: #ffcc00; border-left-color: var(--unit-accent); animation-delay: 0.4s; }
+
+        /* ========== PDF BUTTONS (for notes/books) ========== */
+        .pdf-btn {
+            text-align: center;
+            display: block;
+            width: 90%;
+            padding: 12px 25px;
+            margin: 10px auto;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #00d4ff;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        .pdf-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .pdf-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* ========== LOADING ========== */
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* ========== FLOATING BG ========== */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-elements span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        .floating-elements span:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .floating-elements span:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .floating-elements span:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .floating-elements span:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 20s; }
+        .floating-elements span:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .floating-elements span:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 16s; }
+        .floating-elements span:nth-child(7) { left: 70%; animation-delay: 12s; }
+        .floating-elements span:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 22s; }
+        .floating-elements span:nth-child(9) { left: 90%; animation-delay: 16s; }
+
+        /* ========== SUBJECTS SECTION (INDEX) ========== */
+        .subjects-section {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            padding: 58px 24px 90px;
+            background:
+                radial-gradient(circle at 8% 18%, rgba(0, 212, 255, 0.13), transparent 30%),
+                radial-gradient(circle at 92% 82%, rgba(155, 89, 255, 0.12), transparent 32%),
+                linear-gradient(180deg, rgba(26, 26, 46, 0.94), rgba(18, 18, 38, 0.98));
+            margin-top: 82px;
+        }
+
+        .subjects-section::before,
+        .subjects-section::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            width: 260px;
+            height: 260px;
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            border-radius: 50%;
+        }
+
+        .subjects-section::before {
+            top: -150px;
+            right: 7%;
+            box-shadow: 0 0 70px rgba(0, 212, 255, 0.06);
+        }
+
+        .subjects-section::after {
+            bottom: -180px;
+            left: 4%;
+            border-color: rgba(155, 89, 255, 0.12);
+            box-shadow: 0 0 70px rgba(155, 89, 255, 0.06);
+        }
+
+        .section-container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .subjects-heading {
+            max-width: 700px;
+            margin: 0 auto 46px;
+            text-align: center;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 14px;
+            padding: 7px 14px;
+            border: 1px solid rgba(0, 212, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(0, 212, 255, 0.07);
+            color: #9cecff;
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-title-main {
+            font-size: clamp(2.1rem, 5vw, 3.2rem);
+            line-height: 1.15;
+            margin-bottom: 14px;
+            background: linear-gradient(90deg, #ffffff 20%, #66e6ff 65%, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            padding-bottom: 18px;
+        }
+
+        .section-title-main::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 86px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #00d4ff, #9b59ff);
+            box-shadow: 0 0 10px #00d4ff;
+        }
+
+        .section-subtitle {
+            color: #aeb6c8;
+            font-size: 1rem;
+        }
+
+        .subject-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .subject-item {
+            --subject-accent: #00d4ff;
+            min-height: 172px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 24px;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 3px solid var(--subject-accent);
+            border-radius: 19px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: homeCardIn 0.65s ease-out both;
+        }
+
+        @keyframes homeCardIn {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subject-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 100% 0, rgba(0, 212, 255, 0.12), transparent 48%);
+            opacity: 0.75;
+            pointer-events: none;
+        }
+
+        .subject-item:hover,
+        .subject-item:focus-visible {
+            transform: translateY(-8px);
+            border-color: var(--subject-accent);
+            box-shadow: 0 20px 42px rgba(0, 0, 0, 0.3), 0 0 24px rgba(0, 212, 255, 0.08);
+            outline: none;
+        }
+
+        .subject-index {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--subject-accent);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--subject-accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-details {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subject-code {
+            color: var(--subject-accent);
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .subject-name {
+            color: #f7f9ff;
+            font-size: 1.16rem;
+            line-height: 1.35;
+            font-weight: 650;
+            display: block;
+        }
+
+        .subject-arrow {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: var(--subject-accent);
+            opacity: 0.65;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .subject-item:hover .subject-arrow,
+        .subject-item:focus-visible .subject-arrow {
+            transform: translateX(4px);
+            opacity: 1;
+        }
+
+        .subject-item:nth-child(1) { --subject-accent: #00d4ff; animation-delay: 0.05s; }
+        .subject-item:nth-child(2) { --subject-accent: #00ff9d; animation-delay: 0.1s; }
+        .subject-item:nth-child(3) { --subject-accent: #9b59ff; animation-delay: 0.15s; }
+        .subject-item:nth-child(4) { --subject-accent: #ff6b9d; animation-delay: 0.2s; }
+        .subject-item:nth-child(5) { --subject-accent: #ffcc00; animation-delay: 0.25s; }
+        .subject-item:nth-child(6) { --subject-accent: #00ffcc; animation-delay: 0.3s; }
+
+        body.home-page .footer {
+            margin-top: 0;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: rgba(26, 26, 46, 0.95);
+            border-top: 2px solid #00d4ff;
+            width: 100%;
+            padding: 24px 20px;
+            margin-top: 80px;
+            box-shadow: 0 -5px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #00d4ff;
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #00d4ff;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0;
+            border-top: 0;
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .copyright p {
+            margin: 0;
+        }
+
+        .footer-link {
+            color: #00d4ff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .footer-link:hover,
+        .footer-link:focus-visible {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.8);
+            outline: none;
+        }
+
+        @media (max-width: 980px) {
+            .subject-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .subject-title { font-size: 2rem; }
+            .section { padding: 25px 20px; }
+            .unit-item { padding: 20px; }
+            .unit-heading { align-items: flex-start; gap: 12px; }
+            .unit-number { width: 40px; height: 40px; flex-basis: 40px; border-radius: 10px; }
+            .unit-title { font-size: 1.08rem; }
+            .home-link { margin-top: 100px; }
+            .header-container { flex-direction: column; gap: 20px; }
+            .subjects-section { padding: 44px 18px 64px; }
+            .subjects-heading { margin-bottom: 34px; }
+            .section-kicker { font-size: 0.65rem; }
+            .section-subtitle { font-size: 0.92rem; }
+            .subject-list { grid-template-columns: 1fr; gap: 16px; }
+            .subject-item { min-height: 150px; padding: 21px; }
+            .subject-code { font-size: 0.8rem; }
+            .subject-name { font-size: 1.08rem; }
+            .subject-arrow { top: 21px; right: 21px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="logo-text"><h1>5th Semester Syllabus</h1><p>B.Tech Information Technology</p></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content will be dynamically loaded by JavaScript -->
+    <div id="app-root"></div>
+
+    <footer class="footer">
+        <div class="copyright">
+            <p>&copy; Vishva | Developed by <a href="https://primesphere.netlify.app" class="footer-link" target="_blank" rel="noopener noreferrer">PrimeSphere Digital Solutions</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ========== SYLLABUS DATA ==========
+        const syllabusData = {
+            "CS3591": { code:"CS3591", name:"Computer Networks", overview:"",
+                units:[
+                    {title:"UNIT I : INTRODUCTION AND APPLICATION LAYER", content:"Data Communication - Networks – Network Types – Protocol Layering – TCP/IP Protocol suite – OSI Model – Introduction to Sockets - Application Layer protocols: HTTP – FTP – Email protocols (SMTP - POP3 - IMAP - MIME) – DNS – SNMP."},
+                    {title:"UNIT II : TRANSPORT LAYER", content:"Introduction - Transport-Layer Protocols: UDP – TCP: Connection Management – Flow control - Congestion Control - Congestion avoidance (DECbit, RED) – SCTP – Quality of Service."},
+                    {title:"UNIT III : NETWORK LAYER", content:"Switching : Packet Switching - Internet protocol - IPV4 – IP Addressing – Subnetting - IPV6, ARP, RARP, ICMP, DHCP."},
+                    {title:"UNIT IV : ROUTING", content:"Routing and protocols: Unicast routing - Distance Vector Routing - RIP - Link State Routing – OSPF – Path-vector routing - BGP - Multicast Routing: DVMRP – PIM.."},
+                    {title:"UNIT V : DATA LINK AND PHYSICAL LAYERS", content:"Data Link Layer – Framing – Flow control – Error control – Data-Link Layer Protocols – HDLC – PPP - Media Access Control – Ethernet Basics – CSMA/CD – Virtual LAN – Wireless LAN (802.11) - Physical Layer: Data and Signals - Performance – Transmission media- Switching – Circuit Switching."}
+                ], //lab:null, notes:["TOC Dairy.pdf"], books:[], questions:["CS3591-Theory-of-Computation-Apr-May-2023-Question-Paper-Download.pdf","CS3591-Theory-of-Computation-Apr-May-2024-Question-Paper-Download.pdf","CS3591-Theory-of-Computation-Nov-Dec-2023-Question-Paper-Download.pdf","CS3591-Theory-of-Computation-Nov-Dec-2024-Question-Paper-Download.pdf"]
+            },
+            "IT3501": { code:"IT3501", name:"Full Stack Web Development", overview:"",
+                units:[
+                    {title:"UNIT I : BASICS OF FULL STACK", content:"Understanding the Basic Web Development Framework - User - Browser – Webserver - Backend Services – MVC Architecture - Understanding the different stacks –The role of Express – Angular – Node – Mongo DB – React."},
+                    {title:"UNIT II : NODE JS", content:"Basics of Node JS – Installation – Working with Node packages – Using Node package manager – Creating a simple Node.js application – Using Events – Listeners –Timers - Callbacks – Handling Data I/O – Implementing HTTP services in Node.js."},
+                    {title:"UNIT III : MONGO DB", content:"Understanding NoSQL and MongoDB – Building MongoDB Environment – User accounts – Access control – Administering databases – Managing collections – Connecting to MongoDB from Node.js – simple applications."},
+                    {title:"UNIT IV : EXPRESS AND ANGULAR", content:"Implementing Express in Node.js - Configuring routes - Using Request and Response objects - Angular - Typescript - Angular Components - Expressions - Data binding - Built-in directives."},
+                    {title:"UNIT V : REACT", content:"MERN STACK – Basic React applications – React Components – React State – Express REST APIs - Modularization and Webpack - Routing with React Router – Server-side renderin."}
+                ], lab:null, notes:[], books:["FSDLabManual.pdf"], questions:[]
+            },
+            "CS3551": { code:"CS3551", name:"Distributed Computing", overview:"",
+                units:[
+                    {title:"UNIT I : INTRODUCTION", content:"Introduction: Definition-Relation to Computer System Components – Motivation – Message - Passing Systems versus Shared Memory Systems – Primitives for Distributed Communication – Synchronous versus Asynchronous Executions – Design Issues and Challenges; A Model of Distributed Computations: A Distributed Program – A Model of Distributed Executions – Models of Communication Networks – Global State of a Distributed System."},
+                    {title:"UNIT II : LOGICAL TIME AND GLOBAL STATE", content:"Logical Time: Physical Clock Synchronization: NTP – A Framework for a System of Logical Clocks – Scalar Time – Vector Time; Message Ordering and Group Communication: Message Ordering Paradigms – Asynchronous Execution with Synchronous Communication – Synchronous Program Order on Asynchronous System – Group Communication – Causal Order – Total Order; Global State and Snapshot Recording Algorithms: Introduction – System Model and Definitions – Snapshot Algorithms for FIFO Channels."},
+                    {title:"UNIT III : DISTRIBUTED MUTEX AND DEADLOCK", content:"Distributed Mutual exclusion Algorithms: Introduction – Preliminaries – Lamport’s algorithm – Ricart- Agrawala’s Algorithm –– Token-Based Algorithms – Suzuki-Kasami’s Broadcast Algorithm; Deadlock Detection in Distributed Systems: Introduction – System Model – Preliminaries – Models of Deadlocks – Chandy-Misra-Haas Algorithm for the AND model and OR Model."},
+                    {title:"UNIT IV : CONSENSUS AND RECOVERY", content:"Consensus and Agreement Algorithms: Problem Definition – Overview of Results – Agreement in a Failure-Free System(Synchronous and Asynchronous) – Agreement in Synchronous Systems with Failures; Checkpointing and Rollback Recovery: Introduction – Background and Definitions – Issues in Failure Recovery – Checkpoint-based Recovery – Coordinated Checkpointing Algorithm -- Algorithm for Asynchronous Checkpointing and Recovery."},
+                    {title:"UNIT V : CLOUD COMPUTING", content:"Definition of Cloud Computing – Characteristics of Cloud – Cloud Deployment Models – Cloud Service Models – Driving Factors and Challenges of Cloud – Virtualization – Load Balancing – Scalability and Elasticity – Replication – Monitoring – Cloud Services and Platforms: Compute Services – Storage Services – Application Services."}
+                ], lab:null, notes:["DC 1.pdf"], books:[], questions:[]
+            },
+            "CS3691": { code:"CS3691", name:"Embedded Systems and IOT", overview:"",
+                units:[
+                    {title:"UNIT I : 8-BIT EMBEDDED PROCESSOR", content:"8-Bit Microcontroller – Architecture – Instruction Set and Programming – Programming Parallel Ports – Timers and Serial Port – Interrupt Handling."},
+                    {title:"UNIT II : EMBEDDED C PROGRAMMING", content:"Memory And I/O Devices Interfacing – Programming Embedded Systems in C – Need For RTOS – Multiple Tasks and Processes – Context Switching – Priority Based Scheduling Policies."},
+                    {title:"UNIT III : IOT AND ARDUINO PROGRAMMING", content:"Introduction to the Concept of IoT Devices – IoT Devices Versus Computers – IoT Configurations – Basic Components – Introduction to Arduino – Types of Arduino – Arduino Toolchain – Arduino Programming Structure – Sketches – Pins – Input/Output From Pins Using Sketches – Introduction to Arduino Shields – Integration of Sensors and Actuators with Arduino."},
+                    {title:"UNIT IV : IOT COMMUNICATION AND OPEN PLATFORMS", content:"IoT Communication Models and APIs – IoT Communication Protocols – Bluetooth – WiFi – ZigBee – GPS – GSM modules – Open Platform (like Raspberry Pi) – Architecture – Programming – Interfacing – Accessing GPIO Pins – Sending and Receiving Signals Using GPIO Pins – Connecting to the Cloud."},
+                    {title:"UNIT V : APPLICATIONS DEVELOPMENT", content:"Complete Design of Embedded Systems – Development of IoT Applications – Home Automation – Smart Agriculture – Smart Cities – Smart Healthcare."}
+                ], //lab:null, notes:["WEB1.pdf","WEB2.pdf","WEB3.pdf","WEB4.pdf","WEB5.pdf"], books:[], questions:[]
+            },
+            "CCS360": { code:"CCS360", name:"Recommender Systems", overview:"",
+                units:[
+                    {title:"UNIT I : INTRODUCTION", content:"Introduction and basic taxonomy of recommender systems - Traditional and non-personalized Recommender Systems - Overview of data mining methods for recommender systems- similarity measures- Dimensionality reduction – Singular Value Decomposition (SVD) Suggested Activities:  Practical learning – Implement Data similarity measures.  External Learning – Singular Value Decomposition (SVD) applications Suggested Evaluation Methods:  Quiz on Recommender systems.  Quiz of python tools available for implementing Recommender systems."},
+                    {title:"UNIT II : CONTENT-BASED RECOMMENDATION SYSTEMS", content:"High-level architecture of content-based systems - Item profiles, Representing item profiles, Methods for learning user profiles, Similarity-based retrieval, and Classification algorithms. Suggested Activities:  Assignment on content-based recommendation systems  Assignment of learning user profiles Suggested Evaluation Methods:  Quiz on similarity-based retrieval.  Quiz of content-based filtering."},
+                    {title:"UNIT III : COLLABORATIVE FILTERING", content:"A systematic approach, Nearest-neighbor collaborative filtering (CF), user-based and item-based CF, components of neighborhood methods (rating normalization, similarity weight computation, and neighborhood selection Suggested Activities: ● Practical learning – Implement collaborative filtering concepts ● Assignment of security aspects of recommender systems Suggested Evaluation Methods: ● Quiz on collaborative filtering ● Seminar on security measures of recommender systems."},
+                    {title:"UNIT IV : ATTACK-RESISTANT RECOMMENDER SYSTEMS", content:"Introduction – Types of Attacks – Detecting attacks on recommender systems – Individual attack – Group attack – Strategies for robust recommender design - Robust recommendation algorithms. Suggested Activities: ● Group Discussion on attacks and their mitigation ● Study of the impact of group attacks ● External Learning – Use of CAPTCHAs Suggested Evaluation Methods: ● Quiz on attacks on recommender systems ● Seminar on preventing attacks using the CAPTCHAs."},
+                    {title:"UNIT V : EVALUATING RECOMMENDER SYSTEMS", content:"Evaluating Paradigms – User Studies – Online and Offline evaluation – Goals of evaluation design – Design Issues – Accuracy metrics – Limitations of Evaluation measures Suggested Activities: ● Group Discussion on goals of evaluation design ● Study of accuracy metrics Suggested Evaluation Methods: ● Quiz on evaluation design ● Problems on accuracy measures."}
+                ], lab:null, notes:[], books:["RSLabManual.pdf"], questions:[]
+            },
+            "CCS335": { code:"CCS335", name:"Cloud Computing", overview:"Environment, pollution, renewable energy, sustainability practices.",
+                units:[
+                    {title:"UNIT I : CLOUD ARCHITECTURE MODELS AND INFRASTRUCTURE", content:"Cloud Architecture: System Models for Distributed and Cloud Computing – NIST Cloud Computing Reference Architecture – Cloud deployment models – Cloud service models; Cloud Infrastructure: Architectural Design of Compute and Storage Clouds – Design Challenges."},
+                    {title:"UNIT II : VIRTUALIZATION BASICS", content:"Virtual Machine Basics – Taxonomy of Virtual Machines – Hypervisor – Key Concepts – Virtualization structure – Implementation levels of virtualization – Virtualization Types: Full Virtualization – Para Virtualization – Hardware Virtualization – Virtualization of CPU, Memory and I/O devices."},
+                    {title:"UNIT III : VIRTUALIZATION INFRASTRUCTURE AND DOCKER", content:"Desktop Virtualization – Network Virtualization – Storage Virtualization – System-level of Operating Virtualization – Application Virtualization – Virtual clusters and Resource Management – Containers vs. Virtual Machines – Introduction to Docker – Docker Components – Docker Container – Docker Images and Repositories."},
+                    {title:"UNIT IV : CLOUD DEPLOYMENT ENVIRONMENT", content:"Google App Engine – Amazon AWS – Microsoft Azure; Cloud Software Environments – Eucalyptus – OpenStack."},
+                    {title:"UNIT V : CLOUD SECURITY", content:"Virtualization System-Specific Attacks: Guest hopping – VM migration attack – hyperjacking. Data Security and Storage; Identity and Access Management (IAM) - IAM Challenges - IAM Architecture and Practice."}
+                ], lab:null, notes:["CC 1.pdf","CC 2.pdf","CC 3.pdf","CC 4.pdf","CC 5.pdf"], books:["CCLabManual.pdf"], questions:[]
+            },
+            "time table": { code:"", name:"Time Table", overview:"",
+                units:[], lab:null, notes:["TimeTable.jpg"], books:[], questions:[]
+            }
+        };
+    
+        // Helper: render PDF section if there are notes or books
+        function renderPdfSection(title, files, labelPrefix) {
+            if(!files || files.length===0) return '';
+            let html = `<div class="section"><div class="section-title">${title}</div>`;
+            files.forEach(f => {
+                let displayName = f.replace(/\.pdf$/i,'').replace(/_/g,' ');
+                html += `<a href="pdf/${f}" class="pdf-btn" target="_blank">${labelPrefix} ${displayName}</a><br><br>`;
+            });
+            html += `</div>`;
+            return html;
+        }
+    
+        // ========== HISTORY & NAVIGATION HANDLING ==========
+        // SPA content changes do not reset the browser scroll position automatically.
+        // Always start each newly displayed page from the top.
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+
+        function scrollToPageTop() {
+            window.requestAnimationFrame(() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            });
+        }
+
+        function handleNavigation(subjectCode) {
+            // Update URL without reloading the page
+            if (subjectCode) {
+                const newUrl = `${window.location.pathname}?code=${subjectCode}`;
+                window.history.pushState({ code: subjectCode }, '', newUrl);
+            } else {
+                const newUrl = window.location.pathname;
+                window.history.pushState({ code: null }, '', newUrl);
+            }
+        }
+    
+        // Display subject details (full page)
+        function displaySubjectDetails(subjectCode) {
+            const subject = syllabusData[subjectCode];
+            const root = document.getElementById('app-root');
+            document.body.classList.remove('home-page');
+            if(!subject){
+                root.innerHTML = `<div class="container"><div class="section"><div class="subject-header"><div class="subject-title">Subject Not Found</div><div class="subject-info">Invalid subject code.</div></div></div></div>`;
+                document.title = "Subject Not Found";
+                return;
+            }
+            let unitsHTML = '';
+            subject.units.forEach((unit,idx) => {
+                const unitNumber = String(idx + 1).padStart(2, '0');
+                unitsHTML += `<div class="unit-item" style="animation-delay: ${idx*0.1}s"><div class="unit-heading"><span class="unit-number">${unitNumber}</span><div class="unit-title">${unit.title}</div></div><div class="unit-content">${unit.content}</div></div>`;
+            });
+            let labHTML = subject.lab ? `<div class="section lab-section"><div class="section-content">${subject.lab}</div></div>` : '';
+            let notesHTML = renderPdfSection("Notes", subject.notes, "Notes");
+            let booksHTML = renderPdfSection("Book", subject.books, "Book");
+            let questionsHTML = renderPdfSection("Question Paper", subject.questions, "");
+            root.innerHTML = `
+                <div class="container">
+                    <a href="javascript:void(0)" class="home-link" id="backHomeBtn"><i class="fas fa-arrow-left"></i> Back to All Subjects</a>
+                    <div class="subject-header"><div class="subject-title">${subject.code} – ${subject.name}</div></div>
+                    <div class="section"><div class="section-title">Syllabus <span class="section-count">${subject.units.length} Units</span></div><div class="units-list">${unitsHTML}</div></div>
+                    ${labHTML}
+                    ${notesHTML}
+                    ${booksHTML}
+                    ${questionsHTML}
+                </div>
+            `;
+            document.title = `${subject.code} - ${subject.name} | B.Tech IT Syllabus`;
+            scrollToPageTop();
+            document.getElementById('backHomeBtn')?.addEventListener('click', () => loadIndexPageWithHistory());
+        }
+    
+        function displaySubjectDetailsWithHistory(subjectCode) {
+            displaySubjectDetails(subjectCode);
+            handleNavigation(subjectCode);
+        }
+    
+        // Load main index (subject list)
+        function loadIndexPage() {
+            const root = document.getElementById('app-root');
+            document.body.classList.add('home-page');
+            root.innerHTML = `
+                <section class="subjects-section">
+                    <div class="section-container">
+                        <div class="subjects-heading">
+                            <span class="section-kicker"><i class="fas fa-layer-group"></i> 5th Semester · Information Technology</span>
+                            <h2 class="section-title-main">All Subjects</h2>
+                            <p class="section-subtitle">Select a subject to view its complete syllabus</p>
+                        </div>
+                        <div class="subject-list">
+                            <a href="javascript:void(0)" class="subject-item" data-code="CCS335"><span class="subject-index">01</span><span class="subject-details"><span class="subject-code">CCS335</span><span class="subject-name">Cloud Computing (CC)</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="javascript:void(0)" class="subject-item" data-code="CS3591"><span class="subject-index">02</span><span class="subject-details"><span class="subject-code">CS3591</span><span class="subject-name">Computer Networks (CN)</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="javascript:void(0)" class="subject-item" data-code="CS3551"><span class="subject-index">03</span><span class="subject-details"><span class="subject-code">CS3551</span><span class="subject-name">Distributed Computing (DC)</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="javascript:void(0)" class="subject-item" data-code="CCS360"><span class="subject-index">04</span><span class="subject-details"><span class="subject-code">CCS360</span><span class="subject-name">Recommender Systems (RS)</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="javascript:void(0)" class="subject-item" data-code="IT3501"><span class="subject-index">05</span><span class="subject-details"><span class="subject-code">IT3501</span><span class="subject-name">Full Stack Web Development (FSD)</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="javascript:void(0)" class="subject-item" data-code="CS3691"><span class="subject-index">06</span><span class="subject-details"><span class="subject-code">CS3691</span><span class="subject-name">Embedded Systems and IoT (IOT)</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            <a href="javascript:void(0)" class="subject-item" data-code="time table"><span class="subject-index">07</span><span class="subject-details"><span class="subject-code"></span><span class="subject-name">Time Table</span></span><span class="subject-arrow"><i class="fas fa-arrow-right"></i></span></a>
+                            </div>
+                    </div>
+                </section>
+            `;
+            document.title = "B.Tech - IT Syllabus | SINCET";
+            scrollToPageTop();
+            // attach event listeners
+            document.querySelectorAll('.subject-item').forEach(el => {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const code = el.getAttribute('data-code');
+                    if(code) displaySubjectDetailsWithHistory(code);
+                });
+            });
+        }
+    
+        function loadIndexPageWithHistory() {
+            loadIndexPage();
+            handleNavigation(null);
+        }
+    
+        // Router: check if URL has ?code=XXX
+        function route() {
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code');
+            if(code && syllabusData[code]) {
+                displaySubjectDetailsWithHistory(code);
+            } else {
+                loadIndexPageWithHistory();
+            }
+        }
+    
+        // initial load
+        route();
+        
+        // handle popstate (browser back/forward buttons)
+        window.addEventListener('popstate', (event) => {
+            const code = event.state?.code;
+            if(code && syllabusData[code]) {
+                displaySubjectDetails(code);
+            } else {
+                loadIndexPage();
+            }
+        });
+    </script>
+    </body>
+</html>
